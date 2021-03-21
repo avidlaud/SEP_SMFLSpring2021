@@ -45,8 +45,7 @@ const portfolioSchema = new mongoose.Schema({
         required: true,
     },
     league: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'League',
+        type: String,
         required: true,
     },
     cash: {
