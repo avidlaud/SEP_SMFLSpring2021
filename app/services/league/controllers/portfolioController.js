@@ -1,28 +1,10 @@
-const { response } = require('express');
 const { Order, Portfolio } = require('../models/portfolioModel');
+
 require('dotenv').config();
 
 const getPortfolio = async (league, username) => {
-    try {
-        /* 
-        Create portfolio and add to DB
-
-        const newPortfolio = new Portfolio({
-            owner: "christine",
-            league: "diamondhands",
-            cash: 999,
-            netWorth: 999999,
-            currentHoldings: [{ticker:"TSLA", quantity:2}, {ticker:"AAPL", quantity:10}]
-        });
-        try {
-            const saved = await newPortfolio.save();
-            return saved;
-        } catch (err) {
-            return err;
-        }
-        */
-        
-        const portfolio = await Portfolio.findOne({owner:username, league:league}); //, league: leagueName
+    try {        
+        const portfolio = await Portfolio.findOne({owner:username, league:league}); 
         if (portfolio){
             var portfolioInfo = {
                 netWorth: portfolio.netWorth,
@@ -36,12 +18,17 @@ const getPortfolio = async (league, username) => {
         
         // graphs
 
-        
     } catch (err) {
+        console.log(err);
         return err;
     }
 };
 
 exports.viewPortfolio = async (request, response) => {
-    getPortfolio(request.params.league, request.params.username).then(response.send.bind(response));
+    const portfolio = await getPortfolio(request.params.league, request.params.username)
+    .catch((err) => {
+        console.log(err);
+        response.status(400).send(err);
+    });
+    response.send(portfolio);
 };

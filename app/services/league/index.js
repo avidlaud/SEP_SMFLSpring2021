@@ -8,7 +8,6 @@ const userRoute = require('./routes/userRoutes');
 const portfolioRoute = require('./routes/portfolioRoutes');
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 const connectDB = async () => {
