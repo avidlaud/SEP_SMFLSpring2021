@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Table from 'react-bootstrap/Table';
 import '../../../styles/Portfolio/PortfolioChart.scss';
 
 const PortfolioChartPage = () => {
@@ -12,6 +13,7 @@ const PortfolioChartPage = () => {
     const [league, setLeague] = useState('');
     const [days, setDays] = useState([]);
     const [prices, setPrices] = useState([]);
+    const [holdings, setHoldings] = useState([]);
     const [accountValue, setAccountValue] = useState('');
     const [buyingPower, setBuyingPower] = useState('');
     const [totalReturn, setTotalReturn] = useState('');
@@ -19,9 +21,11 @@ const PortfolioChartPage = () => {
     const getData = () => {
         setDays([]);
         setPrices([]);
+        setHoldings([]);
         axios.get(`http://localhost:3000/portfolio/${league}/${username}`)
             .then((response) => {
                 const { data } = response;
+                // portfolio graph
                 for (let i = 0; i < data.netWorth.length; i += 1) {
                     /* eslint-disable */
                     setDays((days) => [...days, i]);
@@ -33,6 +37,12 @@ const PortfolioChartPage = () => {
                 let returnTotal = data.netWorth[data.netWorth.length - 1].worth;
                 returnTotal /= data.netWorth[0].worth;
                 setTotalReturn(((returnTotal - 1) * 100).toFixed(3));
+                // positions
+                for (let i = 0; i < data.holdings.length; i += 1) {
+                    /* eslint-disable */
+                    setHoldings((holdings) => [...holdings, data.holdings[i]])
+                    /* eslint-enable */
+                }
             })
             .catch((err) => console.error(err));
         setState('chart');
@@ -59,12 +69,12 @@ const PortfolioChartPage = () => {
                     </Form>
                 </Container>
             </div>
-            <div>
+            <div className="portfolio">
                 {state === 'chart' && (
                     <div className="portfolioInfo">
                         <h1>
                             Portfolio for&nbsp;
-                            {league}
+                            <b>{league}</b>
                         </h1>
                         <p>
                             <b>Account Value:&nbsp;</b>
@@ -82,7 +92,7 @@ const PortfolioChartPage = () => {
                     </div>
                 )}
             </div>
-            <div>
+            <div className="lineChart">
                 {state === 'chart' && (
                     <Line
                         data={{
@@ -91,8 +101,8 @@ const PortfolioChartPage = () => {
                                 {
                                     label: 'Net Worth($)',
                                     data: prices,
-                                    borderColor: 'green',
-                                    hoverBackgroundColor: 'red',
+                                    borderColor: 'rgba(98, 252, 3, 1)',
+                                    hoverBackgroundColor: 'blue',
                                     fill: false,
                                     borderWidth: 1,
                                     lineTension: 0.1,
@@ -102,17 +112,16 @@ const PortfolioChartPage = () => {
                         height={400}
                         width={600}
                         options={{
-                            /* title: {
-                                display: true,
-                                text: `Portfolio for ${league}`,
-                                fontSize: 25,
-                            }, */
                             backgroundColor: 'white',
                             maintainAspectRatio: false,
+                            tooltips: {
+                                backgroundColor: 'blue',
+                            },
                             scales: {
                                 yAxes: [{
                                     gridLines: {
-                                        color: 'white',
+                                        color: 'gray',
+                                        zeroLineColor: 'white',
                                     },
                                     scaleLabel: {
                                         display: true,
@@ -122,12 +131,13 @@ const PortfolioChartPage = () => {
                                         labelString: '$',
                                     },
                                     ticks: {
-                                        beginAtZero: true,
+                                        fontColor: 'white',
                                     },
                                 }],
                                 xAxes: [{
                                     gridLines: {
-                                        color: 'white',
+                                        color: 'gray',
+                                        zeroLineColor: 'white',
                                     },
                                     scaleLabel: {
                                         display: true,
@@ -136,16 +146,46 @@ const PortfolioChartPage = () => {
                                         fontStyle: 'bold',
                                         labelString: 'Days',
                                     },
+                                    ticks: {
+                                        fontColor: 'white',
+                                    },
                                 }],
                             },
                             legend: {
                                 labels: {
                                     fontSize: 12,
+                                    fontColor: 'white',
                                 },
                             },
                         }}
                     />
-
+                )}
+            </div>
+            <div className="positions-title">
+                {state === 'chart' && (
+                    <h1>Current Positions</h1>
+                )}
+            </div>
+            <div className="positions">
+                {state === 'chart' && (
+                    <Table striped bordered hover variant="dark">
+                        <thead>
+                            <tr>
+                                <th>Ticker Symbol</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                holdings.map((item) => (
+                                    <tr>
+                                        <td>{item.ticker}</td>
+                                        <td>{item.quantity}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </Table>
                 )}
             </div>
         </div>
