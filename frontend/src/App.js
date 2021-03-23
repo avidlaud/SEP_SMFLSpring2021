@@ -4,6 +4,7 @@ import {
     RegistrationPage, LoginPage, HomePage, PortfolioChartPage,
 } from './components/Pages';
 import Header from './components/Header/Header';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 import './styles/global.scss';
 
 function App() {
@@ -11,20 +12,25 @@ function App() {
         <Router>
             <div className="App">
                 <Header />
-                <Switch>
-                    <Route path="/user/register">
-                        <RegistrationPage />
-                    </Route>
-                    <Route path="/user/login">
-                        <LoginPage />
-                    </Route>
-                    <Route path="/home">
-                        <HomePage />
-                    </Route>
-                    <Route path="/portfolio/league/username">
-                        <PortfolioChartPage />
-                    </Route>
-                </Switch>
+                <div className="site-container">
+                    { ['/user/register', '/user/login'].indexOf(window.location.pathname) < 0 && <NavigationBar /> }
+                    <div className="site-content">
+                        <Switch>
+                            <Route path="/user/register">
+                                <RegistrationPage />
+                            </Route>
+                            <Route path="/user/login">
+                                <LoginPage />
+                            </Route>
+                            <Route path="/home">
+                                <HomePage />
+                            </Route>
+                            <Route path="/portfolio">
+                                <PortfolioChartPage />
+                            </Route>
+                        </Switch>
+                    </div>
+                </div>
             </div>
         </Router>
     );

@@ -51,8 +51,8 @@ const PortfolioChartPage = () => {
     return (
         <div>
             <div>
-                <h2>Portfolio Viewer (temporary form/still need to fix)</h2>
-                <p>Type in username and league name for now for correct routing and scroll down</p>
+                <h2>Portfolio Viewer</h2>
+                <p>Enter username/league, click button and scroll for portfolio information.</p>
                 <Container className="portfolio-container">
                     <Form className="portfolio-form">
                         <Form.Group controlId="formBasicUsername">
