@@ -4,24 +4,24 @@ require('dotenv').config();
 
 const getPortfolio = async (league, username) => {
     try {        
-        const portfolio = await Portfolio.findOne({owner:username, league:league}); 
-        if (portfolio){
-            var portfolioInfo = {
-                netWorth: portfolio.netWorth,
-                cashAvailable: portfolio.cash,
-                holdings: portfolio.currentHoldings
-            };
-            return portfolioInfo;
-        } 
-        else
-            return "Portfolio does not exist!";
-        
-        // graphs
-
+            const portfolio = await Portfolio.findOne({owner:username, league:league}); 
+            if (portfolio){
+                var portfolioInfo = {
+                    currentNetWorth: portfolio.currentNetWorth,
+                    cashAvailable: portfolio.cash,
+                    holdings: portfolio.currentHoldings,
+                    netWorth: portfolio.netWorth,
+                };
+                return portfolioInfo;
+            } 
+            else
+                return "Portfolio does not exist!";
+          
     } catch (err) {
         console.log(err);
         return err;
     }
+
 };
 
 exports.viewPortfolio = async (request, response) => {

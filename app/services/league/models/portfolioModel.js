@@ -52,10 +52,13 @@ const portfolioSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    netWorth: {
+    currentNetWorth: {
         type: Number,
         required: true,
     },
+    netWorth: [{
+        worth: Number,
+    }],
     currentHoldings: [{
         ticker: String,
         quantity: Number,
