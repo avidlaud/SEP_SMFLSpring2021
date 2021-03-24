@@ -6,21 +6,16 @@ require('dotenv').config();
 
 const userRoute = require('./routes/userRoutes');
 const portfolioRoute = require('./routes/portfolioRoutes');
+const leagueRoute = require('./routes/leagueRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.DB_URL, {
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-        });
-        console.log('Successfully connected to database');
-    } catch (err) {
-        console.error('Failed to connect to database');
-    }
-};
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+}, () => console.log('connected to db'));
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -31,4 +26,6 @@ app.use('/user', userRoute);
 
 app.use('/portfolio', portfolioRoute)
 
-app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+app.use('/league', leagueRoute);
+
+app.listen(process.env.PORT, () => console.log(`Running on port ${process.env.PORT}`));

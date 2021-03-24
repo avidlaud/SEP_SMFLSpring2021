@@ -13,6 +13,10 @@
     font-size: 35px;
 }
 
+.registration-container{
+    margin-left: 250px;
+}
+
 .registration-form{ 
     @extend %flex-center;
     border-style: solid;

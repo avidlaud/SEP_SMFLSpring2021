@@ -1,7 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
-    RegistrationPage, LoginPage, HomePage, PortfolioChartPage,
+    RegistrationPage,
+    LoginPage,
+    HomePage,
+    CreateLeaguePage,
+    PortfolioChartPage,
 } from './components/Pages';
 import Header from './components/Header/Header';
 import NavigationBar from './components/NavigationBar/NavigationBar';
@@ -27,6 +31,9 @@ function App() {
                             </Route>
                             <Route path="/portfolio">
                                 <PortfolioChartPage />
+                            </Route>
+                            <Route path="/league/create">
+                                <CreateLeaguePage />
                             </Route>
                         </Switch>
                     </div>
