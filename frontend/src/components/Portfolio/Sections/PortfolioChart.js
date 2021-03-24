@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
+import { Tab, Tabs } from 'react-bootstrap';
 import '../../../styles/Portfolio/PortfolioChart.scss';
 
 const PortfolioChartPage = () => {
@@ -94,71 +95,75 @@ const PortfolioChartPage = () => {
             </div>
             <div className="lineChart">
                 {state === 'chart' && (
-                    <Line
-                        data={{
-                            labels: days,
-                            datasets: [
-                                {
-                                    label: 'Net Worth($)',
-                                    data: prices,
-                                    borderColor: 'rgba(98, 252, 3, 1)',
-                                    hoverBackgroundColor: 'blue',
-                                    fill: false,
-                                    borderWidth: 1,
-                                    lineTension: 0.1,
-                                },
-                            ],
-                        }}
-                        height={400}
-                        width={600}
-                        options={{
-                            backgroundColor: 'white',
-                            maintainAspectRatio: false,
-                            tooltips: {
-                                backgroundColor: 'blue',
-                            },
-                            scales: {
-                                yAxes: [{
-                                    gridLines: {
-                                        color: 'gray',
-                                        zeroLineColor: 'white',
+                    <Tabs defaultActiveKey="profile">
+                        <Tab eventKey="1d" title="1D">
+                            <Line
+                                data={{
+                                    labels: days,
+                                    datasets: [
+                                        {
+                                            label: 'Net Worth($)',
+                                            data: prices,
+                                            borderColor: 'rgba(98, 252, 3, 1)',
+                                            hoverBackgroundColor: 'blue',
+                                            fill: false,
+                                            borderWidth: 1,
+                                            lineTension: 0.1,
+                                        },
+                                    ],
+                                }}
+                                height={400}
+                                width={600}
+                                options={{
+                                    backgroundColor: 'white',
+                                    maintainAspectRatio: false,
+                                    tooltips: {
+                                        backgroundColor: 'blue',
                                     },
-                                    scaleLabel: {
-                                        display: true,
-                                        fontSize: 15,
-                                        fontColor: 'white',
-                                        fontStyle: 'bold',
-                                        labelString: '$',
+                                    scales: {
+                                        yAxes: [{
+                                            gridLines: {
+                                                color: 'gray',
+                                                zeroLineColor: 'white',
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                fontSize: 15,
+                                                fontColor: 'white',
+                                                fontStyle: 'bold',
+                                                labelString: '$',
+                                            },
+                                            ticks: {
+                                                fontColor: 'white',
+                                            },
+                                        }],
+                                        xAxes: [{
+                                            gridLines: {
+                                                color: 'gray',
+                                                zeroLineColor: 'white',
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                fontSize: 15,
+                                                fontColor: 'white',
+                                                fontStyle: 'bold',
+                                                labelString: 'Days',
+                                            },
+                                            ticks: {
+                                                fontColor: 'white',
+                                            },
+                                        }],
                                     },
-                                    ticks: {
-                                        fontColor: 'white',
+                                    legend: {
+                                        labels: {
+                                            fontSize: 12,
+                                            fontColor: 'white',
+                                        },
                                     },
-                                }],
-                                xAxes: [{
-                                    gridLines: {
-                                        color: 'gray',
-                                        zeroLineColor: 'white',
-                                    },
-                                    scaleLabel: {
-                                        display: true,
-                                        fontSize: 15,
-                                        fontColor: 'white',
-                                        fontStyle: 'bold',
-                                        labelString: 'Days',
-                                    },
-                                    ticks: {
-                                        fontColor: 'white',
-                                    },
-                                }],
-                            },
-                            legend: {
-                                labels: {
-                                    fontSize: 12,
-                                    fontColor: 'white',
-                                },
-                            },
-                        }}
-                    />
+                                }}
+                            />
+                        </Tab>
+                    </Tabs>
                 )}
             </div>
             <div className="positions-title">
