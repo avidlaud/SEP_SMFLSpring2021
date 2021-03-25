@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const userRoute = require('./routes/userRoutes');
 const portfolioRoute = require('./routes/portfolioRoutes');
+const tradeRoute = require('./routes/tradeRoutes');
 const leagueRoute = require('./routes/leagueRoutes');
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/user', userRoute);
 
 app.use('/portfolio', portfolioRoute)
 
+app.use('/trade', tradeRoute);
 app.use('/league', leagueRoute);
 
 app.listen(process.env.PORT, () => console.log(`Running on port ${process.env.PORT}`));

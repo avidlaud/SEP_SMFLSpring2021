@@ -37,6 +37,10 @@ const orderSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
+    totalPrice: {
+        type: Number,
+        required: true,
+    },
 });
 
 const portfolioSchema = new mongoose.Schema({
@@ -45,7 +49,8 @@ const portfolioSchema = new mongoose.Schema({
         required: true,
     },
     league: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'League',
         required: true,
     },
     cash: {
@@ -69,4 +74,5 @@ const portfolioSchema = new mongoose.Schema({
 module.exports = {
     Order: mongoose.model('Order', orderSchema),
     Portfolio: mongoose.model('Portfolio', portfolioSchema),
+    portfolioSchema,
 };

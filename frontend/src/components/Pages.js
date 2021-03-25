@@ -3,6 +3,7 @@ import LoginPage from './Login/Login';
 import HomePage from './Home/Home';
 import PortfolioChartPage from './Portfolio/Sections/PortfolioChart';
 import CreateLeaguePage from './CreateLeague/CreateLeague';
+import TradePage from './Trade/Trade';
 
 export {
     RegistrationPage,
@@ -10,4 +11,5 @@ export {
     HomePage,
     PortfolioChartPage,
     CreateLeaguePage,
+    TradePage,
 };
