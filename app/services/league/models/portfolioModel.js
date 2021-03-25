@@ -62,6 +62,7 @@ const portfolioSchema = new mongoose.Schema({
         required: true,
     },
     netWorth: [{
+        date: Date,
         worth: Number,
     }],
     currentHoldings: [{

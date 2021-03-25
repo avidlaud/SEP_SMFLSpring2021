@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import { Tab, Tabs } from 'react-bootstrap';
 import '../../../styles/Portfolio/PortfolioChart.scss';
 
 const PortfolioChartPage = () => {
+    sessionStorage.setItem('username', 'chris'); /* take out this line */
+    const username = sessionStorage.getItem('username');
     const [state, setState] = useState('start');
-    const [username, setUsername] = useState('');
     const [league, setLeague] = useState('');
     const [days, setDays] = useState([]);
     const [prices, setPrices] = useState([]);
@@ -23,7 +22,7 @@ const PortfolioChartPage = () => {
         setDays([]);
         setPrices([]);
         setHoldings([]);
-        axios.get(`http://localhost:3000/portfolio/${league}/${username}`)
+        axios.get(`http://localhost:3000/user/${username}/league`)
             .then((response) => {
                 const { data } = response;
                 // portfolio graph
@@ -52,23 +51,8 @@ const PortfolioChartPage = () => {
     return (
         <div>
             <div>
-                <h2>Portfolio Viewer</h2>
+                <h2>Portfolio</h2>
                 <p>Enter username/league, click button and scroll for portfolio information.</p>
-                <Container className="portfolio-container">
-                    <Form className="portfolio-form">
-                        <Form.Group controlId="formBasicUsername">
-                            <Form.Label required>Username:</Form.Label>
-                            <Form.Control type="username" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicLeague">
-                            <Form.Label required>League:</Form.Label>
-                            <Form.Control type="text" placeholder="Enter league name" onChange={(e) => setLeague(e.target.value)} />
-                        </Form.Group>
-                        <Button onClick={getData}>
-                            Submit
-                        </Button>
-                    </Form>
-                </Container>
             </div>
             <div className="portfolio">
                 {state === 'chart' && (
