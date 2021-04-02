@@ -19,7 +19,10 @@ Additionally, you may click the symlinks in this folder to be redirected to the 
 
 To run these tests, ensure that all required packages are installed by following the instructions in ../1_code/README1.txt.
 
+Additionally, the environment variable `TEST_DB_URL` must be added to the .env file in both stock and league.
+
 If all packages are installed, running `npm test` in either the league or stock directories will run our test suite. 
+Note that for the league tests to be completed, the stock service must be running.
 
 AUTHORS
 	(Refer to ../1_code/README1.txt)
