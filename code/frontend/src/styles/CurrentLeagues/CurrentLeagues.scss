@@ -1,0 +1,29 @@
+@import '../root.scss';
+
+.current-leagues-title{
+    color: white;
+    font-size: 40px;
+    padding: 5%;
+}
+
+.current-leagues-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current-league-name{
+    float: left;
+}
+
+.current-league-worth{
+    float: right;
+}
+
+.league-list{
+    font-size: 20px;
+    width: 60vw;
+    overflow: auto;
+    margin-bottom: 10%;
+    padding-left: 6vw;
+}

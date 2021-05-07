@@ -1,0 +1,43 @@
+@import '../root.scss';
+@import '../Button.scss';
+
+.registration-form-title{
+    padding-top: 5vh;
+    color: var(--white);
+    text-align: center;
+    height: 0px;
+    font-size: 35px;
+}
+
+.registration-form{ 
+    @extend %flex-center;
+    border-style: solid;
+    border-color: var(--white);
+    margin: 10vh 0px 10vh 250px; 
+    padding: 8vh 5vw;
+    .form-group {
+        @extend %flex-center;
+        color: var(--white);
+        align-items: flex-start;
+    }
+
+    .text-login {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .btn {
+        @include btn;
+    }
+}
+
+.text-login{    
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 20vw;
+}
+
+.form-group{
+    font-weight: bold;
+}

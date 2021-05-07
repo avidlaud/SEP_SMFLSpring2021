@@ -1,0 +1,54 @@
+@import '../root.scss';
+@import '../Button.scss';
+
+.no-leagues-title{
+    color: var(--white);
+    font-size: 35px;
+    padding: 30px;
+}
+
+.manage-league-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--white);
+
+    .manage-league-form-title{
+        font-size: 35px;
+        text-align: center;
+        padding: 5vh 0vw;
+    }
+    .league-manage-dropdown{
+        padding-bottom: 7vh;
+        text-align: center;
+
+        .btn{
+            @include dropdownbtn;
+        }
+    }
+
+    .table-body{
+        padding: 5vh;
+        text-align: center;
+        a
+        .btn {
+            padding: 1vh 1vw;
+            background-color: var(--mint);
+            border-color: var(--mint);
+        }
+        td {
+            .btn.btn-primary {
+                @include btn;
+            }
+        }
+    }
+}
+
+.modalView{
+    .btn {
+        @include btn;
+    }
+}
+
+
+

@@ -1,0 +1,139 @@
+@import '../root.scss';
+@import '../Button.scss';
+
+.one-cont.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 7vh;
+
+    .big-logo {
+        padding-top: 5vh;
+    }
+}
+
+.all-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 3vh;
+
+    .reg-button{
+        color: var(--white);
+        background-color: var(--purple);
+        border-color: var(--white);
+    }
+
+    .log-button{
+        color: var(--white);
+        background-color: var(--purple);
+        border-color: var(--white);
+    }
+}
+
+.Page2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7vh 0vw;
+    
+    .market{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.success{
+    text-align: center;
+    font-weight: bolder;
+    padding-bottom: 3vh;
+}
+
+.market{
+    display: flex; 
+    flex-direction: row;
+    padding-top: 3vh;
+}
+
+.page-sections{
+    text-align: center;
+    margin: 2vh 3vw;
+}
+
+.real-title, .test-title, .ed-title{
+    font-weight: bold;
+}
+
+.bot-title{
+    margin-bottom: 5vh;
+}
+
+.word{
+    text-align: center;
+}
+
+.word2{
+    text-align: center;
+    margin-top: 2.5vh;
+}
+
+.expert{
+    .col{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15vh;
+    }
+
+    .expert-card.card{
+        display:inherit;
+        width: 1050px;
+        height: 300px;
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+.expert-card{
+    padding-top: 9vh;
+}
+
+.expert-text{
+    text-align: center;
+    color: var(--dark-scale-grey);
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.expert-text1{
+    text-align: center;
+    color: var(--dark-scale-grey);
+}
+
+.reg-button1.btn-outline-primary{
+    color: var(--white);
+    border-color: var(--white);
+    margin: 20vh 0vw 15vh 0vw;
+    width: 200px;
+    height: 50px;
+}
+
+.names{
+    color: var(--white);
+    padding-top: 4vh;
+    padding-left: 2vw;
+}
+
+.diamond-header{
+    padding-top: 4vh;
+    font-weight: bold;
+}
+
+.created{
+    margin-left: 5vw;
+}

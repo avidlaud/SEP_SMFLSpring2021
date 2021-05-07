@@ -1,0 +1,30 @@
+@import '../root.scss';
+
+.table {
+    background-color: var(--light-scale-grey);
+}
+
+.league-header{
+    color: var(--purple);
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.central-league-page{
+    padding-top: 5vh;
+    
+    h3 {
+        color: var(--mint);
+    }
+   
+}
+
+.lead-graph.row{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+    
+.graph-header{
+    margin-left: 2.5vw;
+}

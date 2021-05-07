@@ -1,0 +1,61 @@
+@import '../root.scss';
+@import '../Button.scss';
+
+.container{
+    height: auto; 
+}
+
+.create-league-container{
+    font-size: 18px;
+    margin-bottom: 10vh;
+}
+
+.create-league-form-title {
+    padding-top: 5%;
+    color: var(--white);
+    text-align: center;
+    font-size: 35px;
+}
+
+.create-league-form { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    font-size: 18px;
+    .form-group {
+        @extend %flex-center;
+        color: var(--white);
+    }
+    .text-register {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .btn {
+        @include btn;
+    }
+
+    .form-label{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        min-width: 300px;
+    }
+}
+
+.form-group{
+    font-weight: bold;
+}
+
+.form-control{
+    min-width: 30%;
+}
+
+.form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 3vh;
+}

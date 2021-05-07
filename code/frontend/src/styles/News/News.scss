@@ -1,0 +1,47 @@
+@import '../Button.scss';
+
+.news-title{
+    color: var(--white);
+    font-size: 35px;
+    margin: 5vh 0vw;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.news-dropdown {
+    .btn{
+        @include dropdownbtn;
+    }
+}
+
+.articles-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.article {
+    width: 300px;
+    height: 345px;
+    margin: 2vh 0vw 8vh 3vw;
+}
+
+.article-cards {
+    width: 300px;
+    height: 345px;
+}
+
+.article-image-cards{
+    width: 297px;
+    height: 215px;
+}
+
+.article-headline {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}

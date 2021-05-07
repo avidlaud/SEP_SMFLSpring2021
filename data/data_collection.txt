@@ -1,0 +1,28 @@
+README
+    This readme contains information regarding necessary data collection
+
+DATA COLLECTION
+    The stock service requires a list of tracked equity tickers for fast response times.
+    This list can be populated by running the populateTickers.js script one time.
+	The tooltips that are displayed on the individual stock page are scraped from investopedia.com, which can be accomplished with the scrape.js script.
+
+PREREQUISITES
+    Configure the .env file with the mongodb database url. Refer to the original README if you do not have a database.
+    Create the .env file in the following location:
+        ./app/services/stock/.env
+    Set DB_URL to the database url.
+    Ensure that the correct versions of Node Package Manager and Node.js are installed, as per the original README.
+    Ensure that the packages have been installed, as defined in package.json.
+
+RUN
+    Navigate to ./app/services/stock/scripts
+    Run "node populateTickers"
+    This script will populate the "tickers" collection in the MongoDB database.
+    When completed, there should be approximately 10,300 documents in the collection.
+    Navigate to ./app/services/league/utils
+	Run "node scrape.js"
+	This script will populate the "tooltips" collection in the database, and the tooltips with the term, definition, and the url will be available for use.
+	
+
+AUTHORS
+    (Refer to ../code/README1.txt)
