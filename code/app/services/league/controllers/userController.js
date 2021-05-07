@@ -1,4 +1,9 @@
 /** @module controllers/userController */
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
 
 const bcrypt = require('bcryptjs');
 const passport = require('passport');

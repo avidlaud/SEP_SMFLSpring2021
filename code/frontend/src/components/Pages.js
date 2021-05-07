@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 import RegistrationPage from './Registration/Registration';
 import LoginPage from './Login/Login';
 import HomePage from './Home/Home';

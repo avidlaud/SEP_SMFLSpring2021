@@ -1,4 +1,9 @@
 /** @module controllers/equityControllers */
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
 
 const fetch = require('node-fetch');
 

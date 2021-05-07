@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 import React from 'react';
 import '../../styles/NavigationBar/NavigationBar.scss';
 import Accordion from 'react-bootstrap/Accordion';

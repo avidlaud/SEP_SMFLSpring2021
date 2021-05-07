@@ -1,4 +1,9 @@
 /** @module controllers/leagueController */
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
 
 const League = require('../models/leagueModel');
 const User = require('../models/userModel');

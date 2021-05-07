@@ -1,4 +1,9 @@
 /** @module routes/tradeRoutes */
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
 
 const express = require('express');
 

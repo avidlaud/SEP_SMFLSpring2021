@@ -1,3 +1,7 @@
+# Written By: Group 3
+# Tested By: Group 3
+# Debugged By: Group 3
+
 import yfinance as yf
 import datetime as dt
 import pandas as pd

@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';

@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link, useHistory } from 'react-router-dom';
 import '../../styles/CentralizedLeague/CentralizedLeague.scss';

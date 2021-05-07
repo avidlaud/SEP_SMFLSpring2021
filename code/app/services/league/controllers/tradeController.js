@@ -1,4 +1,9 @@
 /** @module controllers/tradeController */
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
 
 const { Order } = require('../models/portfolioModel');
 const League = require('../models/leagueModel');

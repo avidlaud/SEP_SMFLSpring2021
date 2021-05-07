@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 /** @module tasks/netWorthTask */
 
 const League = require('../models/leagueModel');

@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

@@ -1,3 +1,7 @@
+# Written By: Group 3
+# Tested By: Group 3
+# Debugged By: Group 3
+
 import pandas as pd
 import numpy as np
 import yfinance as yf

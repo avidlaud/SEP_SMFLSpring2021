@@ -1,3 +1,9 @@
+/*
+    Written By: Group 3
+    Tested By: Group 3
+    Debugged By: Group 3
+*/
+
 const Tooltip = require('../models/tooltipModel');
 
 exports.getTooltip = async(req, res) => {
